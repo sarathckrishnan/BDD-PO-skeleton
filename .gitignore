@@ -1,0 +1,7 @@
+.idea/*
+.idea/misc.xml
+.idea/workspace.xml
+.idea/compiler.xml
+target/*
+chromedriver_mac32.zip
+.DS_Store
