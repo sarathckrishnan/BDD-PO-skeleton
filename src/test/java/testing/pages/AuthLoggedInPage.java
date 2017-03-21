@@ -2,12 +2,16 @@ package testing.pages;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import org.junit.Assert;
+import org.junit.rules.ExpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class AuthLoggedInPage extends Basepage  {
@@ -39,14 +43,9 @@ public class AuthLoggedInPage extends Basepage  {
 	}
 	
 
-	public boolean VerifyDisconnectButton()
-	{
-		try{			
-			disconnectButton.isDisplayed();
-			return true;
-		}catch(NoSuchElementException e) {
-			return false;
-		}
+	public boolean verifyDisconnectButton() {
+		webDriverWait.until(ExpectedConditions.visibilityOf(disconnectButton));
+		return disconnectButton.isDisplayed();
 	}
 
 

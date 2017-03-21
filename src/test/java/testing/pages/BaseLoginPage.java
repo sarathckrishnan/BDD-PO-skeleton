@@ -6,6 +6,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
@@ -79,8 +80,8 @@ public class BaseLoginPage extends Basepage {
 	private WebElement lblAuthFailure;
 	
 	public BaseLoginPage(WebDriver webDriver) {
-
 	this.webDriver = webDriver;
+		PageFactory.initElements(webDriver,this);
 	}
 
 	/**
@@ -91,15 +92,6 @@ public class BaseLoginPage extends Basepage {
 	 * @return Instance of the default Authentication Logged In page
 	 */
 	public AuthLoggedInPage doLogin(String username, String password) {
-
-		try {
-			Thread.sleep(15000L);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		if(usernameField.isDisplayed()){
-			System.out.println("username "+username+" password"+password);
-		}
 		usernameField.sendKeys(username);
 		passwordField.sendKeys(password);
 		loginButton.click();
