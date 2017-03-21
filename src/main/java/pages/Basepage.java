@@ -1,28 +1,33 @@
 
 package pages;
 
+import config.ConfigFileObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by sramalin on 17/09/15.
  */
 public class Basepage {
-
      WebDriver webDriver;
-     String hostURL = "https://login-ci.schneider-electric.com";
-     WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
-
+     WebDriverWait webDriverWait;
+     private static ConfigFileObject configObject;
 
     public BaseLoginPage launchApp(){
+        System.out.println("Environment chosen : "+ System.getProperty("environment"));
+        String propertyFileName = System.getProperty("environment").toLowerCase()+"-testconfig.properties";
+        System.out.println("Property file loaded: "+propertyFileName);
+        configObject = new ConfigFileObject(propertyFileName);
 
+        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "chromedriver.exe");
 
-        //System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriverMAC");
-         System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriver_win32/chromedriver.exe");
         webDriver = new ChromeDriver();
-        webDriver.navigate().to(hostURL);
+        webDriverWait = new WebDriverWait(webDriver, 10);
+        webDriver.get(configObject.testURL);
         return new BaseLoginPage(webDriver);
-
     }
+
 }
