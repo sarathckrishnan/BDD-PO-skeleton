@@ -15,13 +15,13 @@ import org.openqa.selenium.support.PageFactory;
  * @author SESA407106
  *
  */
-public class CompanyDetailsPage extends Basepage {
+public class CompanyDetailsPage extends BasePage {
 
 
 	
 	public enum COMP_FIELD_NAME {
-		COMPANYNAME, COMPANY_STREET, COMPANY_CITY, COMPANY_COUNTRY, COMPANY_ZIPCODE, COMPANY_STATE;
-		}
+		COMPANYNAME, COMPANY_STREET, COMPANY_CITY, COMPANY_COUNTRY, COMPANY_ZIPCODE, COMPANY_STATE
+	}
 
 
 

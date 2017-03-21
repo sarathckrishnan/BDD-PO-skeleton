@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
-public class MessagePage extends Basepage {
+public class MessagePage extends BasePage {
 
 	public MessagePage(WebDriver webDriver) {
 		this.webDriver = webDriver;
@@ -40,11 +40,8 @@ public class MessagePage extends Basepage {
 	
 
 	public boolean VerifyCountryNotDisplayed() {
-		try{			
-			if(countryLink.size() ==0)
-				return true;
-			else
-				return false;
+		try{
+			return countryLink.size() == 0;
 		}catch(Exception e) {
 			return false;
 		}
@@ -52,11 +49,8 @@ public class MessagePage extends Basepage {
 	
 
 	public boolean VerifyLanguageNotDisplayed() {
-		try{			
-			if(localeLink.size() ==0)
-				return true;
-			else
-				return false;
+		try{
+			return localeLink.size() == 0;
 		}catch(Exception e) {
 			return false;
 		}

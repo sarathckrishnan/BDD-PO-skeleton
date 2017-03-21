@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author SESA407106
  *
  */
-public class FacebookLoginPage extends Basepage {
+public class FacebookLoginPage extends BasePage {
 
 	public static By usernameFieldLocator = By.cssSelector("input#email"),
 			signInButtonLocator = By.cssSelector("button#loginbutton"),
@@ -48,14 +48,14 @@ public class FacebookLoginPage extends Basepage {
 	 * @return An instance of the landing page specified by pageClass
 	 */
 //TODO: TO review
-	//	public AuthLoggedInPage doLogin(Class<T> pageClass, String creds) {
+	//	public DisconnectPage doLogin(Class<T> pageClass, String creds) {
 //		userNameField.sendKeys(creds.split(":")[0]);
 //
 //		passwordField.sendKeys(creds.split(":")[1]);
 //
 //		signInButton.click();
 //
-//		return new AuthLoggedInPage(webDriver);
+//		return new DisconnectPage(webDriver);
 //		////return PageFactory.getPageInstance(test, pageClass);
 //	}
 	

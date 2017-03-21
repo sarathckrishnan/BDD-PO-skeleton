@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class WeiboLoginPage extends Basepage {
+public class WeiboLoginPage extends BasePage {
 
 	public WeiboLoginPage(WebDriver webDriver) {
 		this.webDriver = webDriver;
@@ -15,15 +15,15 @@ public class WeiboLoginPage extends Basepage {
 	public static By passwordFieldLocator = By.cssSelector("input#passwd");
 	public static By LoginButtonLocator = By.cssSelector("a[action-type='submit']");
 
-	//TODO: Have changed base page to AuthLoggedInPage
-	public AuthLoggedInPage doLogin(String credentials) {
+	//TODO: Have changed base page to DisconnectPage
+	public DisconnectPage doLogin(String credentials) {
 		webDriver.findElement(usernamefieldLocator).sendKeys(credentials.split(":")[0]);
 		webDriver.findElement(passwordFieldLocator).sendKeys(credentials.split(":")[1]);
 
 
 		webDriver.findElement(LoginButtonLocator).click();
 
-		return new AuthLoggedInPage(webDriver);
+		return new DisconnectPage(webDriver);
 		//return PageFactory.getPageInstance(test, BasePage.class);
 	}
 

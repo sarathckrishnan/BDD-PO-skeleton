@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author SESA407106
  *
  */
-public class TwitterLoginPage extends Basepage {
+public class TwitterLoginPage extends BasePage {
 
 	public static By usernameFieldLocator = By.cssSelector("input#username_or_email"),
 			signInButtonLocator = By.cssSelector("input#allow"),

@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author SESA407106
  *
  */
-public class ForgotPasswordPage extends Basepage {
+public class ForgotPasswordPage extends BasePage {
 
 	public ForgotPasswordPage(WebDriver webDriver) {
 		this.webDriver = webDriver;
@@ -63,26 +63,17 @@ errorMsgLocator = By.cssSelector("div.error");
 	}
 
 	private boolean isErrorDisplayed() {
-		if (webDriver.findElement(errorMsgLocator) != null && errorMsgDiv.isDisplayed()) {
-			return true;
-		}
-		return false;
+		return webDriver.findElement(errorMsgLocator) != null && errorMsgDiv.isDisplayed();
 	}
 	
 	/**
 	 * Click on Back to login link
 	 * 
 	 */
-	public BaseLoginPage backToLogin() {
-		try{
-
+	public LoginPage backToLogin() {
 			backtologin.click();
-			return new BaseLoginPage(webDriver);
+			return new LoginPage(webDriver);
 
-		}catch(org.openqa.selenium.WebDriverException we){
-			return null;
-		}
-		
 	}
 	
 }

@@ -10,36 +10,37 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by sramalin on 17/09/15.
  */
-public class Basepage {
+public class BasePage {
      WebDriver webDriver;
-     WebDriverWait webDriverWait;
+     public static WebDriverWait webDriverWait;
      private static ConfigFileObject configObject;
 
-    public BaseLoginPage launchApp(){
+
+    public LoginPage launchApp(){
         System.out.println("Environment chosen : "+ System.getProperty("environment"));
+        System.out.println("Browser chosen : "+ System.getProperty("browser"));
+
         String propertyFileName = System.getProperty("environment").toLowerCase()+"-testconfig.properties";
         System.out.println("Property file loaded: "+propertyFileName);
+
         configObject = new ConfigFileObject(propertyFileName);
-
-        //System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-       // System.setProperty("webdriver.gecko.driver", "chromedriver.exe");
-
-       // webDriver = new ChromeDriver();
+        webDriver = initBrowser(System.getProperty("browser"));
 
         webDriverWait = new WebDriverWait(webDriver, 10);
         webDriver.get(configObject.testURL);
-       // webDriver.get("http://google.com");
-        return new BaseLoginPage(webDriver);
+        return new LoginPage(webDriver);
     }
-/*
 
-    public WebDriver initBrowsert(String browserName){
-        switch (browserName.toUpperCase()){
-            case "FIREFOX" : webDriver = new FirefoxDriver();
-                return webDriver;
+    public WebDriver initBrowser(String browserName){
+        if(browserName.equalsIgnoreCase("FIREFOX")){
+            webDriver = new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+        }else if(browserName.equalsIgnoreCase("CHROME")) {
+            webDriver = new ChromeDriver();
+            System.setProperty("webdriver.gecko.driver", "chromedriver.exe");
         }
-
+        return webDriver;
     }
-*/
+
 
 }

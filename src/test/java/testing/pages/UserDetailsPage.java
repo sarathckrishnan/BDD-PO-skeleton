@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class UserDetailsPage extends Basepage {
+public class UserDetailsPage extends BasePage {
 
 
 	
@@ -153,10 +153,7 @@ public class UserDetailsPage extends Basepage {
 
 	public boolean VerifyTermsAndCondNotDisplayed() {
 		try{
-			if(tandc.size() ==0)
-				return true;
-			else
-				return false;
+			return tandc.size() == 0;
 		}catch(Exception e) {
 			return false;
 		}
@@ -170,7 +167,7 @@ public class UserDetailsPage extends Basepage {
 	 */
 	public boolean isErrorDisplayed() {
 		boolean result;
-		result = webDriver.findElements(errorDivLocator).size() > 0 ? true : false;
+		result = webDriver.findElements(errorDivLocator).size() > 0;
 		return result;
 	}
 
@@ -230,10 +227,7 @@ public class UserDetailsPage extends Basepage {
 			
 			
 			String pageSource = webDriver.getPageSource();
-			if(pageSource.contains(verify_value))
-				return true;
-			else
-				return false;
+			return pageSource.contains(verify_value);
 			
 			
 		}catch(NoSuchElementException e) {
@@ -270,10 +264,7 @@ public class UserDetailsPage extends Basepage {
 	public boolean checkErrorMessage(String errormessage) {
 		try{
 			List<WebElement> err = webDriver.findElements(By.xpath(".//*[@id='page']/..//span[contains(text(),'"+errormessage+"')]"));
-			if(err.size() > 0)
-				return true;
-			else
-				return false;
+			return err.size() > 0;
 		}
 		catch(org.openqa.selenium.NoSuchElementException e){
 			return false;
@@ -681,11 +672,11 @@ public class UserDetailsPage extends Basepage {
 	 * Click on Back to login link
 	 * 
 	 */
-	public BaseLoginPage backToLogin() {
+	public LoginPage backToLogin() {
 		try{
 			backtologin.click();
 
-			return new BaseLoginPage(webDriver);
+			return new LoginPage(webDriver);
 		}catch(org.openqa.selenium.WebDriverException we){
 			return null;
 		}

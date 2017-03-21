@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author SESA407106
  *
  */
-public class LinkedinLoginPage extends Basepage {
+public class LinkedinLoginPage extends BasePage {
 
 	public static By usernameFieldLocator = By.cssSelector("input#session_key-oauth2SAuthorizeForm"),
 			signInButtonLocator = By.cssSelector("input[name='authorize']"),
