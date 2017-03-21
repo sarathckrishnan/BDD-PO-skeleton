@@ -1,13 +1,11 @@
-package steps;
+package testing.steps;
 
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.AuthLoggedInPage;
-import pages.BaseLoginPage;
-import pages.Basepage;
+import testing.pages.AuthLoggedInPage;
+import testing.pages.BaseLoginPage;
+import testing.pages.Basepage;
 
 
 
@@ -32,9 +30,9 @@ public class LoginSteps {
     }
 
     @When("^I login with user name \"([^\"]*)\" and password \"([^\"]*)\"$")
-    public void I_login_with_user_name_and_password(String username, String pwd) throws Throwable {
+    public void I_login_with_user_name_and_password(String username, String password) throws Throwable {
         // Express the Regexp above with the code you wish you had
-        authLoggedInPage = loginPage.doLogin(username, pwd);
+        authLoggedInPage = loginPage.doLogin(username, password);
 
     }
 
@@ -46,9 +44,5 @@ public class LoginSteps {
         //webDriver.findElement(By.className("dropdown-toggle")).getText()
     }
 
-    @Given("^test given$")
-    public void testGiven() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+
 }
