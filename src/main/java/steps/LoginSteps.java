@@ -1,8 +1,11 @@
 package steps;
 
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.AuthLoggedInPage;
 import pages.BaseLoginPage;
 import pages.Basepage;
 
@@ -17,6 +20,7 @@ public class LoginSteps {
 
 
     protected BaseLoginPage loginPage;
+    protected AuthLoggedInPage authLoggedInPage;
 
 
     @cucumber.api.java.en.Given("^I launch the app$")
@@ -30,7 +34,7 @@ public class LoginSteps {
     @When("^I login with user name \"([^\"]*)\" and password \"([^\"]*)\"$")
     public void I_login_with_user_name_and_password(String username, String pwd) throws Throwable {
         // Express the Regexp above with the code you wish you had
-        //homePage = loginPage.doLogin(username, pwd);
+        authLoggedInPage = loginPage.doLogin(username, pwd);
 
     }
 
@@ -38,7 +42,13 @@ public class LoginSteps {
     public void Home_page_should_be_loaded() throws Throwable {
         // Express the Regexp above with the code you wish you had
         System.out.println("TODO : Validation for home page");
-
+        authLoggedInPage.VerifyDisconnectButton();
         //webDriver.findElement(By.className("dropdown-toggle")).getText()
+    }
+
+    @Given("^test given$")
+    public void testGiven() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

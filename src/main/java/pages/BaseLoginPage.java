@@ -93,10 +93,10 @@ public class BaseLoginPage extends Basepage {
 	 *            logindata in the form "username:password"
 	 * @return Instance of the default Authentication Logged In page
 	 */
-	public AuthLoggedInPage doLogin(String logindata) {
+	public AuthLoggedInPage doLogin(String username, String pwd) {
 
-		usernameField.sendKeys(logindata.split(":")[0]);
-		passwordField.sendKeys(logindata.split(":")[1]);
+		usernameField.sendKeys(username);
+		passwordField.sendKeys(pwd);
 		loginButton.click();
 		return new AuthLoggedInPage(webDriver);
 

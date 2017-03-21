@@ -11,15 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Basepage {
 
      WebDriver webDriver;
-     String hostURL = "http://localhost:8080";
+     String hostURL = "https://login-ci.schneider-electric.com";
      WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
 
 
     public BaseLoginPage launchApp(){
 
 
-        System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriverMAC");
-        // System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriver_win32/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriverMAC");
+         System.setProperty("webdriver.chrome.driver", "../AuthTestAutomation/src/chromedriver/chromedriver_win32/chromedriver.exe");
         webDriver = new ChromeDriver();
         webDriver.navigate().to(hostURL);
         return new BaseLoginPage(webDriver);
