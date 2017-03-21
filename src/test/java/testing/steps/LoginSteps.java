@@ -1,8 +1,10 @@
 package testing.steps;
 
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import testing.pages.AuthLoggedInPage;
 import testing.pages.BaseLoginPage;
 import testing.pages.Basepage;
@@ -40,9 +42,14 @@ public class LoginSteps {
     public void Home_page_should_be_loaded() throws Throwable {
         // Express the Regexp above with the code you wish you had
         System.out.println("TODO : Validation for home page");
-        authLoggedInPage.VerifyDisconnectButton();
+        Assert.assertTrue(authLoggedInPage.verifyDisconnectButton());
         //webDriver.findElement(By.className("dropdown-toggle")).getText()
     }
 
 
+    @When("^click weibo$")
+    public void clickWeibo() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }

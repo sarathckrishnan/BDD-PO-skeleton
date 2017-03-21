@@ -17,19 +17,29 @@ public class Basepage {
 
     public BaseLoginPage launchApp(){
         System.out.println("Environment chosen : "+ System.getProperty("environment"));
-      String propertyFileName = System.getProperty("environment").toLowerCase()+"-testconfig.properties";
+        String propertyFileName = System.getProperty("environment").toLowerCase()+"-testconfig.properties";
         System.out.println("Property file loaded: "+propertyFileName);
         configObject = new ConfigFileObject(propertyFileName);
 
-        System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
        // System.setProperty("webdriver.gecko.driver", "chromedriver.exe");
 
        // webDriver = new ChromeDriver();
-        webDriver = new FirefoxDriver();
+
         webDriverWait = new WebDriverWait(webDriver, 10);
         webDriver.get(configObject.testURL);
        // webDriver.get("http://google.com");
         return new BaseLoginPage(webDriver);
     }
+/*
+
+    public WebDriver initBrowsert(String browserName){
+        switch (browserName.toUpperCase()){
+            case "FIREFOX" : webDriver = new FirefoxDriver();
+                return webDriver;
+        }
+
+    }
+*/
 
 }
