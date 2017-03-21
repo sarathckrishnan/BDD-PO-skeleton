@@ -60,6 +60,7 @@
             <configuration>
                 <systemPropertyVariables>
                     <environment>${env.HOME}</environment>
+                    <browser>${env.BROWSER}</browser>
                 </systemPropertyVariables>
             </configuration>
         </plugin>
